@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw a Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        select, button {
+            font-size: 1.2rem;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Draw a Name from the Hat</h1>
+    
+    <!-- Dropdown menu -->
+    <select id="nameDropdown">
+        <option value="">Select your name</option>
+        <!-- I'll populate these with the family names -->
+    </select>
+    
+    <button onclick="drawName()">Draw Name</button>
+    
+    <!-- Display result -->
+    <div class="result" id="result"></div>
+
+    <script>
+        // This map will store your name pairs (I'll need your map to fill this in)
+        const nameMap = {
+            // Example: "John": "Jane",
+        };
+
+        // Populate the dropdown with the names from the nameMap
+        const dropdown = document.getElementById("nameDropdown");
+        for (const name in nameMap) {
+            const option = document.createElement("option");
+            option.value = name;
+            option.text = name;
+            dropdown.appendChild(option);
+        }
+
+        // Function to draw a name
+        function drawName() {
+            const selectedName = document.getElementById("nameDropdown").value;
+            const resultDiv = document.getElementById("result");
+
+            if (selectedName && nameMap[selectedName]) {
+                resultDiv.textContent = `You drew: ${nameMap[selectedName]}`;
+            } else {
+                resultDiv.textContent = "Please select a valid name.";
+            }
+        }
+    </script>
+</body>
+</html>
