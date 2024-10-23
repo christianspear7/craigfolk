@@ -1,0 +1,115 @@
+# CJ's Family Map
+import random
+
+
+def main():
+    # Define variables
+    family = ["Tina","Allan","Amelia","Riley","Oliver","Hudson","Craig",
+              "Tricia","Mike","Shane","Nicole","Luka","Leo","CJ","Becky",
+              "Ben","Benjy","Emma","Baylor","Bryant","Brodie"]
+    map = {
+        0: "Tina",
+        1: "Allan",
+        2: "Amelia",
+        3: "Riley",
+        4: "Oliver",
+        5: "Hudson",
+        6: "Craig",
+        7: "Tricia",
+        8: "Mike",
+        9: "Shane",
+        10: "Nicole",
+        11: "Luka",
+        12: "Leo",
+        13: "CJ",
+        14: "Becky",
+        15: "Ben",
+        16: "Benjy",
+        17: "Emma",
+        18: "Baylor",
+        19: "Bryant",
+        20: "Brodie"
+    }
+
+    # Generate Random List
+    numbers = list(range(0, 21))
+
+    random.shuffle(numbers)
+
+    hudd_list = list(range(0,7))
+    spear_list = list(range(7, 14))
+    baugh_list = list(range(14,21))
+    hudd_range = list(range(7,21))
+    spear_range = [0,1,2,3,4,5,6,14,15,16,17,18,19,20]
+    baugh_range = list(range(0,14))
+
+    hudd_map = {}
+    spear_map = {}
+    baugh_map = {}
+    exhausted = []
+    j = 0
+
+    # Huddleston Range
+    for i in range(21):
+        if j < 7:
+            if numbers[i] not in exhausted:
+                if numbers[i] in hudd_range:
+                    hudd_map[family[j]] = numbers[i]
+                    exhausted.append(numbers[i])
+                    j = j + 1
+
+    # Compile remaining Baugh names in a list, shuffle it
+    baugh_remainders = []
+    for i in range(21):
+        if numbers[i] not in exhausted and numbers[i] in baugh_list:
+            baugh_remainders.append(numbers[i])
+
+    # Spear Range
+    spear_list_two = spear_list.copy()
+    spears_exhausted = []
+    spear_index = 0
+    random.shuffle(spear_list_two)
+    random.shuffle(baugh_remainders)
+
+    # Part One - Baugh Remainders Randomized Across Spear Family
+    for i in range(len(baugh_remainders)):
+        spear_map[family[spear_list_two[i]]] = baugh_remainders[i]
+        exhausted.append(baugh_remainders[i])
+        spears_exhausted.append(spear_list_two[i])
+        spear_index += 1
+        j = j + 1
+
+    # Part Two - Randomized Spear Remainders get Huddleston Assignments
+    for i in range(21):
+        if j > 6 and j < 14:
+            if numbers[i] not in exhausted:
+                if numbers[i] in spear_range:
+                    spear_map[family[spear_list_two[spear_index]]] = numbers[i]
+                    exhausted.append(numbers[i])
+                    spear_index += 1
+                    j = j + 1
+
+    # Baugh Range
+    for i in range(21):
+        if j > 13:
+            if numbers[i] not in exhausted:
+                baugh_map[family[j]] = numbers[i]
+                exhausted.append(numbers[i])
+                j = j + 1
+
+    print("Huddleston Assignments")
+    print(hudd_map)
+    print("\n")
+    print("Spear Assignments")
+    print(spear_map)
+    print("\n")
+    print("Baugh Assignments")
+    print(baugh_map)
+
+    hudd_values = list(hudd_map.values())
+    spear_values = list(spear_map.values())
+    baugh_values = list(baugh_map.values())
+    values = hudd_values + spear_values + baugh_values
+    print(values)
+
+main()
