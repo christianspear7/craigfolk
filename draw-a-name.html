@@ -51,8 +51,48 @@
         // This map will store your name pairs (I'll need your map to fill this in)
         const nameMap = {
             // Example: "John": "Jane",
+            "Tina":
+            "Allan":
+            "Amelia":
+            "Riley":
+            "Oliver":
+            "Hudson":
+            "Craig":
+            "Tricia":
+            "Mike":
+            "Shane":
+            "Nicole":
+            "Luka":
+            "Leo":
+            "CJ":
+            "Becky":
+            "Ben":
+            "Benjy":
+            "Emma":
+            "Baylor":
+            "Bryant":
+            "Brodie":
         };
 
+
+        let familyNames = ["Tina","Allan","Amelia","Riley","Oliver","Hudson","Craig",
+              "Tricia","Mike","Shane","Nicole","Luka","Leo","CJ","Becky",
+              "Ben","Benjy","Emma","Baylor","Bryant","Brodie"];
+        
+        let numbers = Array.from({ length: familyNames.length }, (v, i) => i);
+
+        // Zip the numbers and names into a dictionary (object)
+        let familyMap = {};
+        for (let i = 0; i < familyNames.length; i++) {
+            familyMap[numbers[i]] = family[i];
+        }
+
+        let values = [7, 20, 13, 14, 17, 19, 12, 16, 18, 15, 0, 3, 2, 4, 8, 10, 5, 9, 6, 11, 1]
+
+        const nameMap = {}
+        for (let i = 0; i < familyNames.length; i++) {
+            nameMap[familyNames[i] = familyNames[values[i]]
+        
         // Populate the dropdown with the names from the nameMap
         const dropdown = document.getElementById("nameDropdown");
         for (const name in nameMap) {
