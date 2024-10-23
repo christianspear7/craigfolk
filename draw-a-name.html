@@ -42,6 +42,22 @@
             font-size: 1.5rem;
             color: #333;
         }
+
+        /* Style for the back button */
+        .back-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }        
     </style>
 </head>
 <body>
@@ -57,6 +73,9 @@
     <!-- Display result -->
     <div class="result" id="result"></div>
 
+    <! -- Button to go back to the homepage -->
+    <button class="back-button" onclick="goHome()">Go to Home Page</button>
+    
     <script>
         let familyNames = ["Tina","Allan","Amelia","Riley","Oliver","Hudson","Craig",
               "Tricia","Mike","Shane","Nicole","Luka","Leo","CJ","Becky",
@@ -102,7 +121,7 @@
             } else {
                 resultDiv.textContent = "Please select a valid name.";
             }
-        }
+        }            
     </script>
 </body>
 </html>
