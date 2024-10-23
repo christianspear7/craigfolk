@@ -100,7 +100,7 @@
 
         const nameMap = {};
         for (let i = 0; i < memberNames.length; i++) {
-            nameMap[memberMap[i]] = familyMap[values[i]];
+            nameMap[memberNames[i]] = familyNames[values[i]];
         }
         // Populate the dropdown with the names from the nameMap
         const dropdown = document.getElementById("nameDropdown");
