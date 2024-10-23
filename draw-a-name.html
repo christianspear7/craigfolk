@@ -39,27 +39,6 @@
     <!-- Dropdown menu -->
     <select id="nameDropdown">
         <option value="">Select your name</option>
-        <option value="">Tina</option>
-        <option value="">Allan</option>
-        <option value="">Amelia</option>
-        <option value="">Riley</option>
-        <option value="">Oliver</option>
-        <option value="">Hudson</option>
-        <option value="">Craig</option>
-        <option value="">Tricia</option>
-        <option value="">Mike</option>
-        <option value="">Shane</option>
-        <option value="">Nicole</option>
-        <option value="">Luka</option>
-        <option value="">Leo</option>
-        <option value="">CJ</option>
-        <option value="">Becky</option>
-        <option value="">Ben</option>
-        <option value="">Benjy</option>
-        <option value="">Emma</option>
-        <option value="">Baylor</option>
-        <option value="">Bryant</option>
-        <option value="">Brodie</option>
     </select>
     
     <button onclick="drawName()">Draw Name</button>
@@ -73,12 +52,6 @@
               "Ben","Benjy","Emma","Baylor","Bryant","Brodie"];
         
         let numbers = Array.from({ length: familyNames.length }, (v, i) => i);
-
-        // Zip the numbers and names into a dictionary (object)
-        let familyMap = {};
-        for (let i = 0; i < familyNames.length; i++) {
-            familyMap[numbers[i]] = family[i];
-        }
 
         let values = [7, 20, 13, 14, 17, 19, 12, 16, 18, 15, 0, 3, 2, 4, 8, 10, 5, 9, 6, 11, 1]
 
