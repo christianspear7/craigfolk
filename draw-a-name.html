@@ -61,15 +61,27 @@
         let familyNames = ["Tina","Allan","Amelia","Riley","Oliver","Hudson","Craig",
               "Tricia","Mike","Shane","Nicole","Luka","Leo","CJ","Becky",
               "Ben","Benjy","Emma","Baylor","Bryant","Brodie"];
+        let memberNames = ["Member One", "Member Two", "Member Three", "Member Four",
+                "Member Five", "Member Six", "Member Seven", "Member Eight", "Member Nine",
+                "Member Ten", "Member Eleven", "Member Twelve", "Member Thirteen",
+                "Member Fourteen", "Member Fifteen", "Member Sixteen", "Member Seventeen",
+                "Member Eighteen", "Member Nineteen", "Member Twenty", "Member Twentyone"];
         
         let numbers = Array.from({ length: familyNames.length }, (v, i) => i);
+        // Zip together familyNames/memberNames with numbers to create familyMap
+        for (let i = 0; i < familyNames.length; i++) {
+            familyMap[i] = familyNames[i];
+            memberMap[i] = memberNames[i];
+        }
+        
 
+        
         let keys = [];
         let values = [16, 12, 11, 19, 13, 10, 7, 20, 17, 15, 18, 14, 0, 4, 2, 8, 5, 3, 9, 1, 6];
 
         const nameMap = {};
         for (let i = 0; i < familyNames.length; i++) {
-            nameMap[familyNames[i]] = familyNames[values[i]];
+            nameMap[familyMap[i]] = familyNames[values[i]];
         }
         // Populate the dropdown with the names from the nameMap
         const dropdown = document.getElementById("nameDropdown");
