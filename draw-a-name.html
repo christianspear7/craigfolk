@@ -88,6 +88,8 @@
         
         let numbers = Array.from({ length: familyNames.length }, (v, i) => i);
         // Zip together familyNames/memberNames with numbers to create familyMap
+        const familyMap = {}
+        const memberMap = {}
         for (let i = 0; i < familyNames.length; i++) {
             familyMap[i] = familyNames[i];
             memberMap[i] = memberNames[i];
