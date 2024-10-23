@@ -39,7 +39,9 @@
     <!-- Dropdown menu -->
     <select id="nameDropdown">
         <option value="">Select your name</option>
-        <!-- I'll populate these with the family names -->
+            let familyNames = ["Tina","Allan","Amelia","Riley","Oliver","Hudson","Craig",
+                "Tricia","Mike","Shane","Nicole","Luka","Leo","CJ","Becky",
+                "Ben","Benjy","Emma","Baylor","Bryant","Brodie"];
     </select>
     
     <button onclick="drawName()">Draw Name</button>
@@ -62,10 +64,10 @@
 
         let values = [7, 20, 13, 14, 17, 19, 12, 16, 18, 15, 0, 3, 2, 4, 8, 10, 5, 9, 6, 11, 1]
 
-        const nameMap = {}
+        const nameMap = {};
         for (let i = 0; i < familyNames.length; i++) {
-            nameMap[familyNames[i] = familyNames[values[i]]
-        
+            nameMap[familyNames[i] = familyNames[values[i]];
+        }
         // Populate the dropdown with the names from the nameMap
         const dropdown = document.getElementById("nameDropdown");
         for (const name in nameMap) {
